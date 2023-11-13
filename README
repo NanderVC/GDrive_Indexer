@@ -1,0 +1,19 @@
+This code is meant as boilerplate for vectorizing all contents within a google drive folder recursively for a couple of filetypes, namely pdf, docx and text into a pinecone index.
+
+You can easily add more if you study the code a bit. To use the code, do the following:
+
+1. Add a credentials.json from your google console to the root folder (search for how to create a google application and generate the credentials.json)
+2. Enter your OpenAI key in the .env file.
+3. Enter your pinecone API key in the main.py and ingestion.py files, along with the environment and index name where neccessary.
+4. Find the id of your google drive folder by checking the url of the folder and paste it into main.py into to the list all metadata function
+5. Run main.py and go through the oauth 
+
+The program wil go through the drive folder recursively and collect all file metadata and adds it to a local pickle file.
+
+Then it will loop over all the metadata and download, ingest and then delete the filke locally again.
+
+It shouldn't be too challenging to dockerize this and run it on a schedule in google cloud run, essentially gicing you an up to date vector datastore of any google drive folder on which you can then perform Retrieval Augmented generation.
+
+Good luck!
+
+Feel free to contact me at ai@nvcdeveloped.com for help with implementation.
